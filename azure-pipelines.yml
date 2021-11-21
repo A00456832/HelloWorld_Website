@@ -39,6 +39,12 @@ steps:
     publishWebProjects: true
     arguments: '--configuration $(buildconfiguration) --output "$(build.artifactstagingdirectory)"'
 
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'publish'
+    publishWebProjects: true
+    arguments: '--configuration $(buildconfiguration) --output "$(build.artifactstagingdirectory)"'
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
